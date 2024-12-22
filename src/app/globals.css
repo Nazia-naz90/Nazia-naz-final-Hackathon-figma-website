@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: auto; /* Allow vertical scrolling */
+  }

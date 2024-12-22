@@ -1,203 +1,174 @@
 "use client";
-
-import navItem from "../constant";
 import Link from "next/link";
-import Image from "next/image";
-import useToggle from "../hooks/hooks";
+import {useState}from "react";
+import {  FiPhone,
+  FiMail,
+  FiInstagram,
+  FiYoutube,
+  FiFacebook,
+  FiTwitter,
+  FiSearch,
+  FiShoppingCart,
+  FiHeart,
+  FiChevronDown,
+  FiMenu,
+  FiX,
+} from "react-icons/fi";
 
-export default function Navbar() {
-  
-  const  {toggle, handleMenuClick } = useToggle();
-  
-  return (
-    <header className="h-[58px] bg-[#FFFFFF]
-    max-w-[90rem] sm:max-w-7xl 
-   md:max-w-7xl lg:max-w-7xl xl:max-w-7xl 2xl:max-w-7xl
-   mx-auto  fixed container lg:relative">
-
-  <div className="flex items-center justify-between space-x-20 h-full px-4 sm:px-6 md:px-8 lg:mx-auto xl:px-4 container">
-        <div className="flex 
-        items-center justify-center
-        sm:flex-row ">
-          <h1 className="font-bold text-[24px] font-serif ">Bandage</h1>
+const Header =() =>{
+  const [isMenuOpen,setIsMenuOpen] = useState(false);
+  return(
+    <div className="overflow-x-hidden">
+      {/* HEADER SECTION */}
+     <div className="bg-[#252B42] py-4 hidden lg:block">
+      <div className="container mx-auto flex justify-between items-center text-white text-sm">
+        {/* CONTACT INFORMATION */}
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1">
+            <FiPhone/>
+            <p>(225) 555-0118</p>
           </div>
-
-        <nav className="lg:h-[44.54px] ">
-          <ul
-            className="hidden lg:flex h-full w-full items-center 
-          justify-between gap-[20px] text-[#737373]
-          text-[17px] font-medium ">
-            {navItem.map((item, id) => (
-              <Link href={item.link} 
-              key={id}
-          className="transition transform hover:-translate-y-1 
-          motion-reduce:transition-none 
-          motion-reduce:hover:transform-none">
-                <li key={id}>{item.title}</li>
-              </Link>
-              
-            ))}
-            
-        <div
-          className="text-[17px]
-         hidden lg:flex justify-center items-center
-         text-blue-500 ml-72
-         transition transform hover:-translate-y-1 
-         motion-reduce:transition-none 
-         motion-reduce:hover:transform-none"
-        >
-          <Link href={""} className="flex items-center justify-center space-x-3">
-          <Image src={"/images/login-icon.png"}
-          alt="icon"
-          width={15}
-          height={15}
-          className="h-[15px] w-[15px]"
-          ></Image>
-          <p className="text-[14px] text-[#23A6F0] font-bold space-x-3">{"Login/Register"}</p>
-          <Image src={"/images/search-icon.png"}
-          alt="search-icon"
-          width={50}
-          height={50}
-          className="h-[50px] w-[50px]">
-          </Image>
-          <Image src={"/images/cart-icon.png"}
-          alt="cart-icon"
-          width={50}
-          height={50}
-          className="h-[50px] w-[50px]">
-          </Image>
-          <Image src={"/images/heart-icon.png"}
-          alt="heart-icon"
-          width={50}
-          height={50}
-          className="h-[50px] w-[50px]">
-          </Image>
-          </Link>
-        </div>
-          </ul>
-        </nav>
-
-        {/*SEARCH ,CART ICONS, & HAMBURGER BUTTON FOR MOBILE */}
-        <div className="flex items-center justify-center lg:hidden">
-          {/* SEARCH ICON */}
-          <Link href={""} className="flex items-center justify-center space-x-3">
-          <Image src={"/images/search-icon-for-mobile.png"}
-          alt="search-icon"
-          width={24}
-          height={24}
-          className="h-[24px] w-[24px]">
-          </Image>
-          <Image src={"/images/cart-icon-for-mobile.png"}
-          alt="cart-icon"
-          width={23}
-          height={17.6}
-          className="h-[23px] w-[20px]">
-          </Image>
-          </Link>
-          <div className="flex flex-col justify-between  
-           mx-4 gap-y-1  " onClick = {handleMenuClick}>
-            <div className="w-[25px] bg-black 
-            h-[4px] mt-5px mb-5px ml-3px mr-3px"></div>
-            <div className="w-[17px] bg-black
-            h-[4px] mt-5px mb-5px ml-3px mr-3px"></div>
-            <div className="w-[13px] bg-black 
-            h-[4px] mt-5px mb-5px ml-3px mr-3px"></div>
+          <div className="flex items-center gap-1">
+            <FiMail/>
+            <p>
+              michelle.rivera@example.com
+            </p>
           </div>
-                    {/* media query on navbar */}
-          {toggle && (
-        <div className="absolute right-0 w-[12rem] h-[100vh] bg-[#ffff] text-[#737373] mt-96 p-4 
-        rounded-md ">
-        <div className="flex flex-col justify-center items-center">
-        <nav className="h-[5.5675vh]">
-        <ul
-         className=" flex flex-col h-full w-full items-center 
-         justify-between space-y-4 text-[#737373]
-         text-[20px] font-medium"
-                  >
-                    {navItem.map((item, id) => (
-                      <Link href={item.link}
-                      key={id}
-                      className="transition transform hover:-translate-y-1 
-                      motion-reduce:transition-none 
-                      motion-reduce:hover:transform-none"
-                       >
-                        <li key={id}>{item.title}</li>
-                      </Link>
-                    ))}
-          <Link href={""} className="flex flex-col items-center justify-center space-x-3">
-          <Image src={"/images/login-icon.png"}
-          alt="icon"
-          width={15}
-          height={15}
-          className="h-[15px] w-[15px]"
-          ></Image>
-          <p className="text-[14px] text-[#23A6F0] font-bold space-x-3">{"Login/Register"}</p>
-          <Image src={"/images/search-icon.png"}
-          alt="search-icon"
-          width={50}
-          height={50}
-          className="h-[50px] w-[50px]">
-          </Image>
-          <Image src={"/images/cart-icon.png"}
-          alt="cart-icon"
-          width={50}
-          height={50}
-          className="h-[50px] w-[50px]">
-          </Image>
-          <Image src={"/images/heart-icon.png"}
-          alt="heart-icon"
-          width={50}
-          height={50}
-          className="h-[50px] w-[50px]">
-          </Image>
-          </Link>
-                  </ul>
-                </nav>
-                <div className="flex flex-col mt-48 
-                space-y-2">
-                          <div
-          className="text-[17px]
-         hidden lg:flex justify-center items-center
-         text-blue-500
-         transition transform hover:-translate-y-1 
-         motion-reduce:transition-none 
-         motion-reduce:hover:transform-none"
-        >
-          <Link href={""} className="flex items-center justify-center space-x-3">
-          <Image src={"/images/login-icon.png"}
-          alt="icon"
-          width={15}
-          height={15}
-          className="h-[15px] w-[15px]"
-          ></Image>
-          <p className="text-[14px] text-[#23A6F0] font-bold space-x-3">{"Login/Register"}</p>
-          <Image src={"/images/search-icon.png"}
-          alt="search-icon"
-          width={50}
-          height={50}
-          className="h-[50px] w-[50px]">
-          </Image>
-          <Image src={"/images/cart-icon.png"}
-          alt="cart-icon"
-          width={50}
-          height={50}
-          className="h-[50px] w-[50px]">
-          </Image>
-          <Image src={"/images/heart-icon.png"}
-          alt="heart-icon"
-          width={50}
-          height={50}
-          className="h-[50px] w-[50px]">
-          </Image>
-          </Link>
         </div>
-                </div>
-              </div>
-            </div>
-          )}
-          {/* toggle-end */}
+        {/* PROMOTION */}
+        <p className="hidden md:block">
+          Follow Us and get a chance to win 50% off
+        </p>
+        {/* SOCIAL MEDIA LINKS */}
+        <div className="flex items-center gap-4">
+          <p className="hiddenmd:block">
+            Follow Us
+          </p>
+          <Link 
+          href="http://www.instagram.com"
+          target="_blank"
+          rel="noopener noreferrer">
+        <FiInstagram/>
+          </Link>
+          <Link href="https://www.youtube.com"
+          target="_blank"
+         rel="noopener noreferrer">
+          <FiYoutube/>
+          </Link>
+          <Link href="http://www.facebook.com"
+          target="blank"
+          rel="noopener noreferrer">
+            <FiFacebook/>
+          </Link>
+          <Link href="http://www.twitter.com"
+          target="blank"
+          rel="noopener noreferrer">
+            <FiTwitter/>
+          </Link>
         </div>
       </div>
-    </header>
+    </div>
+
+     {/* NAVBAR */}
+    <div className="bg-white shadow-md border-b-2 border-[#E5E5E5] relative z-40">
+      <div className="container mx-auto flex items-center justify-between py-4">
+        {/* LOGO */}
+        <div className="text-2xl font-bold text-[#252B42]">
+          BANDAGE
+        </div>
+        {/* ACTION ICONS (MOBILE & DESKTOP) */}
+      <div className="flex items-center gap-4 md:hidden">
+        <FiSearch className="text-2xl text-[#252B42] cursor-pointer"/>
+        <FiShoppingCart className="text-lg cursor-pointer"/>
+        <button onClick={()=> setIsMenuOpen(!isMenuOpen)}aria-label="Toggle menu">
+          {
+           isMenuOpen ? (
+            <FiX className="text-3xl text-[#252B42]"/> 
+           ):(
+           <FiMenu className="text-3xl text-[#252B42]"/>
+           )}
+        </button>
+        </div>
+        {/* NAVIGATION LINKS */}
+        <nav className="hidden md:flex">
+          <ul className="flex gap-8 text-sm font-medium text-[#737373]
+          relative">
+              <li className="relative group">
+              <Link href="/" className="flex items-center gap-1 hover:text-[#23A6F0] transition-all">
+              Home
+              </Link>
+            </li>
+            <li className="relative group">
+              <Link href="/product" className="flex items-center gap-1 hover:text-[#23A6F0] transition-all">
+              Shop
+          <FiChevronDown/>
+              </Link>
+            </li>
+            <li>
+          <Link href="/about" className="hover:text-[#23A6F0] transition-all">
+          About
+          </Link>
+            </li>
+            <li>
+        <Link href="#blog"
+        className="hover:text-[#23A6F0] transition-all">
+          Blog
+        </Link>  
+            </li>
+            <li>
+        <Link href="/contact"
+        className="hover:text-[#23A6F0] transition-all">
+          Contact
+        </Link>
+        </li>
+        <li>
+        <Link href="/pages"
+        className="hover:text-[#23A6F0] transition-all">
+          Pages
+        </Link>
+        </li>
+          </ul>
+        </nav>
+        {/* ACTION ICONS FOR DESKTOP */}
+       <div className="hidden md:flex items-center gap-6 text-[#23A6F0]">
+        <button className="text-sm font-medium">
+          Login/Register
+        </button>
+        <FiSearch className="text-lg cursor-pointer"/>
+        <FiShoppingCart className="text-lg cursor-pointer"/>
+        <FiHeart className="text-lg cursor-pointer"/>
+        </div> 
+      </div>
+      {/* MOBILE MENU */}
+      <div className={`${isMenuOpen ? "block":"hidden"} md:hidden bg-white shadow-md transition-all duration-300 ease-in-out`}>
+        <ul className="flex flex-col gap-6 p-4 text-[20px] text-[#737373] text-center">
+        <li>
+        <Link href="/" className="hover:text-[#23A6F0] transition-all">
+        Home
+        </Link>
+          </li>
+          <li>
+        <Link href="/product" className="hover:text-[#23A6F0] transition-all">
+        Product
+        </Link>
+          </li>
+          <li>
+        <Link href="/about" className="hover:text-[#23A6F0] transition-all">
+        Pricing
+        </Link>
+          </li>
+          <li>
+        <Link href="/contact" className="hover:text-[#23A6F0] transition-all">
+        Contact
+        </Link>
+        </li>
+        </ul>
+
+      </div>
+    </div>
+    </div>
   );
-}
+};
+
+
+export default Header;

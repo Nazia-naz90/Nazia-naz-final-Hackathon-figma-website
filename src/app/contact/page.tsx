@@ -1,12 +1,19 @@
 import React from 'react'
-import Navbar from '../components/navbar'
+import Header from '../aboutcomponent/header'
+import ContactUs from '../contactUs/contactUs'
+import Office from '../contactUs/office'
+import Footer from '../components/footerFirst'
+
+
 
 const Contact = () => {
   return (
-    <div>
-        <Navbar/>
-      Contact
-    </div>
+    <>
+    <Header/>
+    <ContactUs/>
+    <Office/>
+    <Footer/>
+    </>
   )
 }
 

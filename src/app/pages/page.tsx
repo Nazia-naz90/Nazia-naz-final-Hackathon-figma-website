@@ -1,13 +1,21 @@
 import React from 'react'
-import Navbar from '../components/navbar'
+import Header from '../components/navbar';
+import Hero from '../shop-components/hero';
+import MeetTeam from '../shop-components/team';
+import Footer from '../components/footerFirst';
 
-const Pages = () => {
+
+const ShopPages = () => {
   return (
-    <div>
-      <Navbar/>
-      Pages
-    </div>
+  <>
+  
+  <Header/>
+  <Hero/>
+  <MeetTeam/>
+  <Footer/>
+  
+  </>
   )
 }
 
-export default Pages
+export default ShopPages;

@@ -1,24 +1,20 @@
-import Navbar from "./components/navbar"
 import Hero from "./components/hero";
 import Editors from "./components/editorPick";
-import ProductCard from "./components/productCard";
-import VitaClasic from "./components/vitaClasic";
-import PartOfNatural from "./components/partOfNatural";
-import FeaturedPost from "./components/featuredPosts";
-import FooterFirst from "./components/footerFirst";
-import Footer  from "./components/footer";
+import FeatureProduct from "./components/featureProduct";
+import FeaturedPost from "./components/featuredPost";
+import Header from "./components/navbar";
+import Footer from "./components/footerFirst";
+
+
 
 export default function Home() {
   return (
     <div>
-     <Navbar/>
+     <Header/>
      <Hero/>
      <Editors/>
-     <ProductCard/>
-     <VitaClasic/>
-     <PartOfNatural/>
+     <FeatureProduct/>
      <FeaturedPost/>
-     <FooterFirst/>
      <Footer/>
     </div>
     
